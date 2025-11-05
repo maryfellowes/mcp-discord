@@ -20,4 +20,6 @@ RUN npm run build
 EXPOSE 8080
 
 # Default command to run the MCP server with HTTP transport
-CMD ["node", "build/index.js", "--transport", "http", "--port", "8080"]
+# Use ENTRYPOINT + CMD for flexibility
+ENTRYPOINT ["node", "build/index.js"]
+CMD ["--transport", "stdio", "--port", "8080"]
